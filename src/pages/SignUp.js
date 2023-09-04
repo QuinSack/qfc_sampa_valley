@@ -1,21 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/signup.css'
+import { auth } from '../configs/firebase';
+import {createUserWithEmailAndPassword, signOut} from 'firebase/auth'
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const currentUser = auth.currentUser;
+
+    const handleSignup = async (e) => {
+      try{
+        e.preventDefault();
+        const submitDetails = await createUserWithEmailAndPassword(auth, email, password);
+        console.log(submitDetails);
+        setEmail("");
+        setPassword("");
+        navigate("/home");
+      }catch(err){
+        console.error(err)
+      }
+    }
+
+    const handleSignout = async (e) => {
+      try{
+        e.preventDefault();
+        const signUserOut = await signOut(auth);
+        console.log(signUserOut);
+      }catch(err){
+        console.error(err);
+      }
+    }
+
+    console.log(currentUser);
+
   return (
-    <div className="signup-container">
-        <h2>Sign Up</h2>
-        <form className="signup-form">
-            <div className="input-group">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" placeholder="Enter your email" required />
-            </div>
-            <div className="input-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required />
-            </div>
-            <button type="submit" className="signup-button">Sign Up</button>
+    <div className='signupcontainer'>
+        <form className='signupcontent'>
+            <h3><strong>Create An Account</strong></h3>
+            <section className='signupinput'>
+                <input type='email' placeholder='Email Address' value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+            </section>
+            <button onClick={(e)=>handleSignup(e)}><strong>Create Account</strong></button>
         </form>
+        <button type='submit' onClick={(e)=>handleSignout(e)}>Sign Out</button>
     </div>
   )
 }
