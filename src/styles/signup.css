@@ -1,39 +1,47 @@
+.signupcontainer{
+    display: flex;
+    width: 100vw;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSvV1jImKO1aTd69jrJp81sXO3Ty-zgTbgYAhtnK8PVuztO5SGu7WBS2Yp3uz8oreMazM&usqp=CAU");
+    background-size: contain;
+}
 
-.signup-container {
-    text-align: center;
-    border: 1px solid #ccc;
-    padding: 20px;
-    max-width: 400px;
-    width: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+.signupcontent{
+    width: 30%;
+    height: 50%;
     background-color: white;
-    margin: 0 auto;
-}
-.signup-container h2 {
-    margin-bottom: 20px;
-}
-.signup-form {
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 15px;
 }
-.input-group {
-    margin: 10px 0;
-    width: 100%;
+
+.signupcontent input{
+    width: 90%;
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 10px;
 }
-.input-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-.input-group input[type="text"],
-.input-group input[type="password"] {
-    width: 100%;
+
+.signupcontent button{
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 15px;
+    background-color: lightgreen;
+    color: white;
+    transition: 0.5s;
+    margin-top: 30px;
 }
-.signup-button {
-    margin-top: 20px;
+
+.signupcontent button:hover{
+    transform: scale(1.10);
+}
+
+.signupinput{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
 }
