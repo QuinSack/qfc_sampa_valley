@@ -17,7 +17,7 @@ const SignUp = () => {
         console.log(submitDetails);
         setEmail("");
         setPassword("");
-        navigate("/home");
+        navigate("/");
       }catch(err){
         console.error(err)
       }
