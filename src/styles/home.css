@@ -17,7 +17,7 @@
 }
 
 .memberform input{
-    width: 70%;
+    width: 80%;
     height: 30px;
     padding-left: 15px;
     border-radius: 10px;
@@ -31,4 +31,16 @@
 
 .memberform button:hover{
     transform: scale(1.1);
+}
+
+.successmessagecontainer{
+    width: 30%;
+    background-color: darkgoldenrod;
+}
+
+@media only screen and (max-width: 361px){
+    .memberform{
+        width: 90%;
+        background-color: white;
+    }
 }

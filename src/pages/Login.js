@@ -12,20 +12,20 @@ const Login = () => {
 
     //const {setIsAuthenticated, handleSignIn} = useContext(AuthContext);
 
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth, (user) => {
-    //         if (user) {
-    //             handleSignIn();
-    //             navigate("/home");
-    //             console.log(user.email);
-    //         } else {
-    //             setIsAuthenticated(false);
-    //             console.log("No user is signed in at the moment");
-    //         }
-    //     });
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                //handleSignIn();
+                navigate("/");
+                console.log(user.email);
+            } else {
+                //setIsAuthenticated(false);
+                console.log("No user is signed in at the moment");
+            }
+        });
 
-    //     return () => unsubscribe(); // Cleanup the listener when the component unmounts
-    // }, []);
+        return () => unsubscribe(); // Cleanup the listener when the component unmounts
+    }, []);
 
     const handleLogin = async (e) => {
         try{
