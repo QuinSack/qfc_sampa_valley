@@ -1,13 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header';
-import AppRoutes from './routes/Routes';
+import Layout from './components/Layout';
+import { useState } from 'react';
+import { AuthContext } from './contexts/AuthContext';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const handleSignIn = () => {
+    setIsAuthenticated(true);
+  }
   return (
     <div className='App'>
-      <Header />
-      <AppRoutes />
+      <AuthContext.Provider value={{isAuthenticated, setIsAuthenticated, handleSignIn}}>
+        <Layout />
+      </AuthContext.Provider>
     </div>
   );
 }
