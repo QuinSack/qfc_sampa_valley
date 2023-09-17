@@ -8,7 +8,7 @@ const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const currentUser = auth.currentUser.email;
+    //const currentUser = auth.currentUser.email;
 
     const handleSignup = async (e) => {
       try{
@@ -33,7 +33,7 @@ const SignUp = () => {
       }
     }
 
-    console.log(currentUser);
+    //console.log(auth.currentUser.email);
 
   return (
     <div className='signupcontainer'>

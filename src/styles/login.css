@@ -21,3 +21,10 @@
 .loginform input{
     padding-left: 15px;
 }
+
+@media only screen and (max-width: 768px){
+    .loginform{
+        width: 75%;
+        height: 100%;
+    }
+}
