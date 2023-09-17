@@ -15,13 +15,13 @@ const Home = () => {
 
   const [showSuccessMessage,setShowSuccessMessage] = useState(false);
 
-  const openModal = () => {
-    setShowSuccessMessage(true);
-  }
+  // const openModal = () => {
+  //   setShowSuccessMessage(true);
+  // }
 
-  const closeModal = () => {
-    setShowSuccessMessage(false);
-  }
+  // const closeModal = () => {
+  //   setShowSuccessMessage(false);
+  // }
 
   const handleFormSubmit =async (e) => {
     e.preventDefault();
@@ -46,7 +46,8 @@ const Home = () => {
       setLocation('');
       setPhoneNumber('');
       setEmail('');
-      openModal();
+      alert('Your details have been submitted successfully');
+      //openModal();
     }catch(err){
       console.error(err);
     }
@@ -86,14 +87,14 @@ const Home = () => {
         <input type='email' placeholder='Email Address' value={email} onChange={(e)=>setEmail(e.target.value)} />
         <button type='submit'><strong>Submit Details</strong></button>
       </form>
-      <Modal show={showSuccessMessage} onHide={closeModal} centered className='successmessagecontainer'>
+      {/* <Modal show={showSuccessMessage} onHide={closeModal} centered className='successmessagecontainer'>
         <Modal.Header closeButton>
           <h4><strong>Form Submitted!</strong></h4>
         </Modal.Header>
         <Modal.Body>
           <h5>Your details have been received.</h5>
         </Modal.Body>
-      </Modal>
+      </Modal> */}
     </div>
   )
 }
