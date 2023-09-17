@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../styles/home.css'
 import {collection, addDoc} from 'firebase/firestore'
 import { db } from '../configs/firebase'
+import { Modal } from 'react-bootstrap'
 
 const Home = () => {
   const [fullName, setFullName] = useState('');
@@ -11,6 +12,16 @@ const Home = () => {
   const [location, setLocation] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
+
+  const [showSuccessMessage,setShowSuccessMessage] = useState(false);
+
+  const openModal = () => {
+    setShowSuccessMessage(true);
+  }
+
+  const closeModal = () => {
+    setShowSuccessMessage(false);
+  }
 
   const handleFormSubmit =async (e) => {
     e.preventDefault();
@@ -35,6 +46,7 @@ const Home = () => {
       setLocation('');
       setPhoneNumber('');
       setEmail('');
+      openModal();
     }catch(err){
       console.error(err);
     }
@@ -44,7 +56,7 @@ const Home = () => {
       <h4>Please fill in your details to continue</h4>
       <form className='memberform' onSubmit={handleFormSubmit}>
         <input type='text' placeholder='Full Name' value={fullName} onChange={(e)=>setFullName(e.target.value)} />
-        <input type='date' placeholder='Date of birth' value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
+        <input type='text' placeholder='Date of birth (DD-MM-YYYY)' value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
         <input
           type='text'
           placeholder='Employment Status'
@@ -74,6 +86,14 @@ const Home = () => {
         <input type='email' placeholder='Email Address' value={email} onChange={(e)=>setEmail(e.target.value)} />
         <button type='submit'><strong>Submit Details</strong></button>
       </form>
+      <Modal show={showSuccessMessage} onHide={closeModal} centered className='successmessagecontainer'>
+        <Modal.Header closeButton>
+          <h4><strong>Form Submitted!</strong></h4>
+        </Modal.Header>
+        <Modal.Body>
+          <h5>Your details have been received.</h5>
+        </Modal.Body>
+      </Modal>
     </div>
   )
 }
