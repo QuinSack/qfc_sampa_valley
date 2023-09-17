@@ -38,7 +38,7 @@
     background-color: darkgoldenrod;
 }
 
-@media all and (max-width: 400px){
+@media all and (max-width: 768px){
     .memberform{
         width: 90%;
         background-color: white;
