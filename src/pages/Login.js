@@ -10,16 +10,16 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    //const {setIsAuthenticated, handleSignIn} = useContext(AuthContext);
+    const {setIsAuthenticated, handleSignIn} = useContext(AuthContext);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
-                //handleSignIn();
+                handleSignIn();
                 navigate("/");
                 console.log(user.email);
             } else {
-                //setIsAuthenticated(false);
+                setIsAuthenticated(false);
                 console.log("No user is signed in at the moment");
             }
         });
@@ -36,6 +36,7 @@ const Login = () => {
             //     navigate("/home")
             // };
             console.log(auth.currentUser.email);
+            console.log("Display name is: " + auth.currentUser.displayName);
         }catch(err){
             console.error(err);
         }
