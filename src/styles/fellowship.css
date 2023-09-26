@@ -38,4 +38,8 @@
         height: 50%;
         background-color: white;
     }
+
+    .fellowshipform input{
+        width: 75%;
+    }
 }
