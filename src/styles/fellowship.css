@@ -31,3 +31,11 @@
     height: 30px;
     width: 50%;
 }
+/* 768 */
+@media all and (max-width: 768px){
+    .fellowshipform{
+        width: 80%;
+        height: 80%;
+        background-color: white;
+    }
+}
