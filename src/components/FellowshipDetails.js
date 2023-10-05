@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { auth, db } from '../configs/firebase';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import { collection, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import '../styles/fellowship.css'
@@ -110,7 +110,7 @@ const FellowshipDetails = () => {
           <button type="button" onClick={handleProfileUpdate}>
             <b>Update Details</b>
           </button>
-          <button><b>Service Forms</b></button>
+          <Link to='/serviceform'><button><b>Service Forms</b></button></Link>
         </form>
       ) : (
         <p>Please log in to view and update your profile</p>

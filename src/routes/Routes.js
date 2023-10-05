@@ -5,6 +5,7 @@ import SignUp from '../pages/SignUp'
 import Login from '../pages/Login'
 import { AuthContext } from '../contexts/AuthContext'
 import FellowshipDetails from '../components/FellowshipDetails'
+import ServiceForms from '../pages/ServiceForms'
 
 const AppRoutes = () => {
   const {isAuthenticated} = useContext(AuthContext);
@@ -14,6 +15,7 @@ const AppRoutes = () => {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
         <Route path='/fellowshipdetails' element={isAuthenticated ? <FellowshipDetails /> : <Navigate to="/login" />} />
+        <Route path='/serviceform' element={<ServiceForms />} />
     </Routes>
   )
 }
