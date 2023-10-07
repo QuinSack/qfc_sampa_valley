@@ -25,6 +25,7 @@ const ServiceForms = () => {
       setIncome("");
       setTithers("");
       setTreasurers("");
+      alert("Service form submitted successfully");
       console.log(postServiceForm);
     }catch(err){
       console.error(err);
